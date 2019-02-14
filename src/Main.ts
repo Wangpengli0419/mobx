@@ -2,7 +2,7 @@ import { AssetAdapter } from './AssetAdapter';
 import { ThemeAdapter } from './ThemeAdapter';
 import { platform } from './Platform';
 import { LoadingUI } from './LoadingUI';
-import { observable, autorun, computed, action } from 'mobx';
+import { observable, autorun, computed, action , when} from 'mobx';
 //////////////////////////////////////////////////////////////////////////////////////
 //
 //  Copyright (c) 2014-present, Egret Technology.
@@ -144,7 +144,7 @@ class userData {
     gold = 33
     // @computed
     public get num() {
-        console.log(numbers)
+        // console.log(numbers)
         return numbers.reduce((a, b) => a + b, 0)
     }
 }
@@ -156,14 +156,35 @@ window['user'] = user;
 
 var numbers = observable([1,2,3]);
 window['numbers'] = numbers;
-
-
 var sum = computed(() => numbers.reduce((a, b) => a + b, 0));
-
 var disposer = autorun(() => console.log(sum.get()));
+
+class whenTest {
+
+    constructor() {
+        when(
+            () => this.isMore,
+            () => console.log('大于10了')
+        )
+    
+    }
+
+    @computed
+    public get isMore() {
+        console.log("ismore")
+        return sum.get() > 10;
+    }
+}
+
+const whenTest1 = new whenTest();
+
 // 输出 '6'
 numbers.push(4);
 // 输出 '10'
+numbers.push(1);
+// 输出 '11'
 
-// disposer();
+disposer();
 numbers.push(5);
+
+

@@ -1,7 +1,7 @@
 {
   "name": "mobxtest",
   "version": "1.0.0",
-  "description": "",
+  "description": "webpack egret demo,mobx test",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack/web.config.js"
@@ -27,5 +27,13 @@
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashayx/mobx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashayx/mobx/issues"
+  },
+  "homepage": "https://github.com/ashayx/mobx#readme"
 }

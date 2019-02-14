@@ -39,7 +39,7 @@ const webConfig = {
 
         host: '127.0.0.1',
         disableHostCheck: true,
-        port: 9002,
+        port: 9003,
         open: true
     },
     plugins: [
